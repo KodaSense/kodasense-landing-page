@@ -1,0 +1,595 @@
+/* =========================================
+   1. VARIÁVEIS GLOBAIS
+   ========================================= */
+:root {
+    /* Cores do Tema Escuro (Padrão) */
+    --cor-fundo: #060f1e;
+    --cor-texto: #E6F1FF;
+    --cor-primaria: #007BFF; 
+    --cor-primaria-hover: #0056b3;
+    --cor-secundaria: #8892B0;
+    --fundo-nav: rgba(6, 15, 30, 0.85);
+    --cor-fundo-card: rgba(17, 34, 64, 0.6);
+    --cor-borda: rgba(255, 255, 255, 0.05);
+
+    /* Fontes */
+    --fonte-titulos: 'Poppins', sans-serif;
+    --fonte-textos: 'Inter', sans-serif;
+}
+/* =========================================
+   2. BASE & RESET
+   ========================================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+html {
+    scroll-padding-top: 90px; /* Evita que o menu cubra os títulos ao clicar nos links */
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    font-family: var(--fonte-textos);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+h1, h2, h3, h4, .logo-rodape {
+    font-family: var(--fonte-titulos);
+}
+section {
+    padding: 100px 5%;
+    background-color: transparent;
+}
+/* =========================================
+   3. BACKGROUNDS & EFEITOS DE VÍDEO
+   ========================================= */
+.glow-bg {
+    position: fixed;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+.video-fundo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%) scale(1.1); 
+    z-index: -3;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.overlay-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(6, 15, 30, 0.8) 0%, rgba(6, 15, 30, 0.95) 100%);
+    z-index: -2;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+/* =========================================
+   4. COMPONENTES GERAIS (Botões e Títulos)
+   ========================================= */
+/* Títulos de Seção */
+.cabecalho-sessao {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.badge-sessao {
+    display: inline-block;
+    background: rgba(0, 123, 255, 0.1);
+    color: var(--cor-primaria);
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+.titulo-sessao {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+.subtitulo-sessao {
+    font-size: 1.1rem;
+    color: var(--cor-secundaria);
+    margin-top: 10px;
+}
+/* Botões */
+.btn-contato, .btn-acao {
+    background-color: var(--cor-primaria);
+    color: #FFF;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-contato:hover, .btn-acao:hover {
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+.btn-acao-secundario {
+    background-color: transparent;
+    border: 1px solid var(--cor-secundaria);
+    color: var(--cor-texto);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.btn-acao-secundario:hover {
+    border-color: var(--cor-texto);
+    background: rgba(255, 255, 255, 0.05);
+}
+.btn-gigante {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+/* =========================================
+   5. NAVBAR E HEADER
+   ========================================= */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--fundo-nav);
+    border-bottom: 1px solid var(--cor-borda);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+.logo-site {
+    height: 50px;
+    width: auto;
+}
+.menu-navegacao {
+    display: flex;
+    gap: 35px;
+}
+.menu-navegacao a {
+    text-decoration: none;
+    color: var(--cor-secundaria);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.menu-navegacao a:hover {
+    color: var(--cor-primaria);
+}
+.acoes-navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#btn-tema {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s;
+}
+#btn-tema:hover {
+    transform: scale(1.1);
+    color: var(--cor-primaria);
+}
+/* =========================================
+   6. SEÇÕES DO SITE
+   ========================================= */
+
+/* --- Inicio (Hero) --- */
+.sessao-inicial {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 5% 50px 5%;
+}
+.conteudo-inicial {
+    max-width: 55%;
+}
+.conteudo-inicial h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1.5px;
+}
+.destaque-texto {
+    color: var(--cor-primaria);
+}
+.conteudo-inicial p {
+    font-size: 1.25rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+.botoes-hero {
+    display: flex;
+    gap: 15px;
+}
+.visual-inicial {
+    width: 40%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.placeholder-imagem {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(29, 53, 87, 0.1));
+    border: 1px solid var(--cor-borda);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--cor-secundaria);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: flutuar 4s ease-in-out infinite;
+}
+@keyframes flutuar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+/* --- Muito além do código (Sobre) --- */
+.grid-sobre {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.card-sobre {
+    background-color: var(--cor-fundo-card);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--cor-borda);
+    transition: transform 0.3s, border-color 0.3s;
+}
+.card-sobre:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-primaria);
+}
+.icone-card {
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+}
+.titulo-card-sobre {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+.paragrafo-sobre {
+    color: var(--cor-secundaria);
+    line-height: 1.8;
+}
+/* --- Serviços --- */
+.grade-servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.card-servico {
+    background-color: var(--cor-fundo-card);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--cor-borda);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.card-servico::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--cor-primaria);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+.card-servico:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.card-servico:hover::before {
+    transform: scaleX(1);
+}
+.icone-servico {
+    font-size: 2.5rem;
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+}
+.titulo-servico {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+.descricao-servico {
+    color: var(--cor-secundaria);
+}
+/* --- Tecnologias --- */
+.grade-tech {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.item-tech {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--cor-fundo-card);
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--cor-borda);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s;
+    cursor: default;
+}
+.item-tech i {
+    font-size: 1.3rem;
+    color: var(--cor-primaria);
+}
+.item-tech:hover {
+    background-color: var(--cor-primaria);
+    color: #FFF;
+    border-color: var(--cor-primaria);
+    transform: translateY(-3px);
+}
+.item-tech:hover i {
+    color: #FFF;
+}
+/* --- Contato (WhatsApp) --- */
+.sessao-contato {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 120px;
+}
+.caixa-contato {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), var(--cor-fundo-card));
+    border: 1px solid var(--cor-primaria);
+    padding: 60px 40px;
+    border-radius: 24px;
+    text-align: center;
+}
+.caixa-contato h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.caixa-contato p {
+    color: var(--cor-secundaria);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* =========================================
+   7. RODAPÉ
+   ========================================= */
+.rodape-koda {
+    background-color: #030811;
+    border-top: 1px solid var(--cor-borda);
+    padding: 30px 5%;
+}
+.conteudo-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.logo-rodape {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+.links-rodape {
+    display: flex;
+    gap: 20px;
+}
+.links-rodape a {
+    color: var(--cor-secundaria);
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+.links-rodape a:hover {
+    color: var(--cor-primaria);
+}
+.direitos {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+}
+/* =========================================
+   8. ESTILOS GUARDADOS (Portfólio / Projetos)
+   ========================================= */
+/* Esses estilos estão prontos para quando você descomentar a aba de projetos no HTML */
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.card-projeto {
+    background: var(--cor-fundo-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda);
+}
+.img-projeto-placeholder {
+    height: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    border-bottom: 1px solid var(--cor-borda);
+}
+.info-projeto {
+    padding: 25px;
+}
+.info-projeto h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.info-projeto p {
+    color: var(--cor-secundaria);
+    font-size: 0.95rem;
+}
+/* =========================================
+   9. TEMA CLARO (Alternância de Cores)
+   ========================================= */
+body.tema-claro {
+    --cor-fundo: #F4F7FA;
+    --cor-texto: #101828;
+    --cor-secundaria: #475467;
+    --fundo-nav: rgba(6, 15, 30, 0.95); 
+    --cor-fundo-card: #E2E8F0; 
+    --cor-borda: rgba(0, 0, 0, 0.08);
+}
+body.tema-claro .overlay-video {
+    background: rgba(244, 247, 250, 0.92);
+}
+body.tema-claro #navbar .menu-navegacao a {
+    color: #8892B0;
+}
+body.tema-claro #navbar .menu-navegacao a:hover {
+    color: #FFF;
+}
+body.tema-claro #btn-tema {
+    color: #E6F1FF;
+}
+body.tema-claro .card-servico, 
+body.tema-claro .card-sobre, 
+body.tema-claro .card-projeto {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+body.tema-claro .item-tech {
+    background-color: var(--cor-fundo-card);
+    color: var(--cor-texto);
+}
+body.tema-claro .btn-acao-secundario {
+    border-color: var(--cor-borda);
+    background: var(--cor-fundo-card);
+}
+body.tema-claro .btn-acao-secundario:hover {
+    background: #D1D5DB;
+}
+body.tema-claro .rodape-koda {
+    background-color: #FFFFFF;
+}
+body.tema-claro .caixa-contato {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+body.tema-claro .img-projeto-placeholder {
+    background: #D1D5DB;
+    color: var(--cor-secundaria);
+}
+/* =========================================
+   10. RESPONSIVIDADE & MENU MOBILE
+   ========================================= */
+#btn-menu-mobile {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--cor-texto);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+@media (max-width: 900px) {
+    .sessao-inicial {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 150px;
+    }
+    .conteudo-inicial { max-width: 100%; margin-bottom: 50px; }
+    .conteudo-inicial h1 { font-size: 2.8rem; }
+    .botoes-hero { justify-content: center; }
+    .visual-inicial { width: 100%; }
+    .grid-sobre { grid-template-columns: 1fr; }
+    .conteudo-rodape { flex-direction: column; gap: 15px; text-align: center; }
+    #btn-menu-mobile { display: block; }
+    .btn-ocultar-mobile { display: none; }
+    .menu-navegacao {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--fundo-nav);
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid var(--cor-borda);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    }
+    .menu-navegacao.ativo {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    .rodape-koda {
+        padding: 15px 5%;
+    }
+    .conteudo-rodape {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+    .direitos {
+        width: 100%;    
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+}

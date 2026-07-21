@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodaSense | Inovação e Tecnologia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop playsinline class="video-fundo">
+        <source src="Fundo.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-video"></div>
+    <div class="glow-bg"></div>
+    <!-- Cabecalho -->
+    <header id="navbar">
+        <img src="KodaKSsf.png" alt="KodaSense" class="logo-site">
+        <nav class="menu-navegacao">
+            <a href="#sobre">Quem Somos</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#tecnologias">Tecnologias</a>
+        </nav>
+        <div class="acoes-navbar">
+    <button id="btn-tema" title="Alternar Tema Claro/Escuro"><i class="fa-solid fa-moon"></i></button>
+    <!-- NOVO: Botão do menu mobile -->
+    <button id="btn-menu-mobile" title="Abrir Menu"><i class="fa-solid fa-bars"></i></button>
+    <!-- Ajuste: Escondemos o botão de contato na barra apenas no mobile por falta de espaço -->
+    <a href="#contato" class="btn-contato btn-ocultar-mobile">Fale com um Especialista</a>
+</div>
+    </header>
+    <main>
+        <!-- Inicio -->
+        <section id="inicio" class="sessao-inicial">
+            <div class="conteudo-inicial" data-aos="fade-right" data-aos-duration="1000">
+                <h1>Transformamos ideias em <span class="destaque-texto">soluções digitais</span> de alto impacto.</h1>
+                <p>A KodaSense é o parceiro tecnológico estratégico que a sua empresa precisa para escalar, inovar e dominar o mercado.</p>
+                <div class="botoes-hero">
+                    <a href="#servicos" class="btn-acao">Nossas Soluções</a>
+                    <a href="#contato" class="btn-acao-secundario">Entrar em Contato</a>
+                </div>
+            </div>
+            <div class="visual-inicial" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <img src="logoKoda.png" alt="KodaSense">
+            </div>
+        </section>
+        <!-- Muito alem do codigo -->
+        <section class="sessao-sobre" id="sobre">
+            <div class="cabecalho-sessao" data-aos="fade-up">
+                <h2 class="titulo-sessao">Muito além do código</h2>
+                <p class="subtitulo-sessao">Conheça os pilares que sustentam nossa parceria com você.</p>
+            </div>
+            <div class="grid-sobre">
+                <div class="card-sobre" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icone-card"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="titulo-card-sobre">Nosso Propósito</h3>
+                    <p class="paragrafo-sobre">Democratizar o acesso a sistemas de excelência, entregando soluções digitais de alto nível tecnológico com um investimento justo, transparente e que traga retorno real.</p>
+                </div>
+                <div class="card-sobre" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icone-card"><i class="fa-solid fa-users-gear"></i></div>
+                    <h3 class="titulo-card-sobre">Quem Somos</h3>
+                    <p class="paragrafo-sobre">Uma equipe com foco em resultados. Mergulhamos no seu negócio para transformar ideias complexas em ferramentas simples, intuitivas e feitas sob medida.</p>
+                </div>
+                <div class="card-sobre" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icone-card"><i class="fa-solid fa-dna"></i></div>
+                    <h3 class="titulo-card-sobre">O Nosso DNA</h3>
+                    <p class="paragrafo-sobre">Respiramos inovação e performance. Nosso código é limpo, nosso design é construído para converter clientes e nossa comunicação é transparente em todas as etapas.</p>
+                </div>
+                <div class="card-sobre" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icone-card"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="titulo-card-sobre">Visão de Futuro</h3>
+                    <p class="paragrafo-sobre">Ser o principal parceiro estratégico da sua empresa. Nosso objetivo não é só entregar software, mas construir relacionamentos de longo prazo e crescer com você.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Servicos -->
+        <section id="servicos" class="sessao-servicos">
+            <div class="cabecalho-sessao" data-aos="fade-up">
+                <span class="badge-sessao">O QUE FAZEMOS</span>
+                <h2 class="titulo-sessao">Soluções 360º para o seu negócio</h2>
+            </div>
+            <div class="grade-servicos">
+                <div class="card-servico" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icone-servico"><i class="fa-solid fa-window-maximize"></i></div>
+                    <h3 class="titulo-servico">Sistemas Web (SaaS)</h3>
+                    <p class="descricao-servico">Painéis administrativos, CRMs e ERPs sob medida com back-end robusto e arquitetura escalável.</p>
+                </div>
+                <div class="card-servico" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icone-servico"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="titulo-servico">Landing Pages</h3>
+                    <p class="descricao-servico">Páginas de altíssima conversão, com design magnético, otimizadas para SEO e captura de leads.</p>
+                </div>
+                <div class="card-servico" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icone-servico"><i class="fa-solid fa-shop"></i></div>
+                    <h3 class="titulo-servico">E-commerce Integrado</h3>
+                    <p class="descricao-servico">Lojas virtuais personalizadas, com checkouts seguros e integração com sistemas de estoque.</p>
+                </div>
+                <div class="card-servico" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="icone-servico"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3 class="titulo-servico">UI/UX Design</h3>
+                    <p class="descricao-servico">Prototipagem de interfaces modernas no Figma que encantam o usuário e facilitam a jornada de uso.</p>
+                </div>
+                <div class="card-servico" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="icone-servico"><i class="fa-solid fa-server"></i></div>
+                    <h3 class="titulo-servico">Infraestrutura e Deploy</h3>
+                    <p class="descricao-servico">Estruturação de servidores, bancos de dados e hospedagem para garantir que seu sistema esteja sempre no ar.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Tecnologias -->
+        <section id="tecnologias" class="sessao-tech">
+            <div class="cabecalho-sessao" data-aos="fade-up">
+                <span class="badge-sessao">NOSSO ARSENAL</span>
+                <h2 class="titulo-sessao">Tecnologias que Dominamos</h2>
+                <p class="subtitulo-sessao">Ferramentas de ponta para garantir estabilidade e performance.</p>
+            </div>
+            <div class="grade-tech">
+                <div class="item-tech" data-aos="flip-up"><i class="fa-brands fa-html5"></i> HTML5 & CSS3</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="50"><i class="fa-brands fa-js"></i> JavaScript</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="100"><i class="fa-brands fa-node-js"></i> Node.js</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="150"><i class="fa-brands fa-java"></i> Java Spring Boot</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="200"><i class="fa-brands fa-python"></i> Python</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="250"><i class="fa-solid fa-database"></i> MySQL</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="300"><i class="fa-brands fa-aws"></i> AWS Cloud</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="350"><i class="fa-brands fa-docker"></i> Docker</div>
+                <div class="item-tech" data-aos="flip-up" data-aos-delay="400"><i class="fa-brands fa-figma"></i> Figma</div>
+            </div>
+        </section>
+
+        <!-- A seção de PROJETOS está oculta aqui em comentários para você usar no futuro -->
+        <!--
+        <section id="projetos" class="sessao-projetos">
+            ... seu portfolio entrará aqui ...
+        </section>
+        -->
+
+        <!-- Contato (WhatsApp) -->
+        <section id="contato" class="sessao-contato" data-aos="zoom-in">
+            <div class="caixa-contato">
+                <h2>Pronto para tirar sua ideia do papel?</h2>
+                <p>Vamos marcar um bate-papo sem compromisso. Nossa equipe está pronta para entender o seu negócio.</p>
+               <a href="https://api.whatsapp.com/send?phone=5543988604583&text=Olá, gostaria de falar sobre um projeto com a KodaSense!" target="_blank" rel="noopener noreferrer" class="btn-acao btn-gigante">
+    <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i> Iniciar Conversa no WhatsApp
+                </a>    
+            </div>
+        </section>
+    </main>
+    <!-- Rodape -->
+    <footer class="rodape-koda">
+        <div class="conteudo-rodape">
+            <div class="logo-rodape">KodaSense</div>
+            <div class="links-rodape">
+                <a href="https://instagram.com/kodasense" target="_blank" rel="noopener noreferrer" title="Siga nosso Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="direitos">&copy; 2026 KodaSense. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
