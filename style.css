@@ -41,7 +41,7 @@ body {
     font-family: var(--fonte-textos);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-h1, h2, h3, h4, .logo-rodape {
+h1, h2, h3, h4, .logo-rodape, .direitos{
     font-family: var(--fonte-titulos);
 }
 section {
@@ -83,7 +83,6 @@ section {
     background: linear-gradient(180deg, rgba(6, 15, 30, 0.8) 0%, rgba(6, 15, 30, 0.95) 100%);
     z-index: -2;
     pointer-events: none;
-    transition: background 0.3s ease;
 }
 /* =========================================
    4. COMPONENTES GERAIS (Botões e Títulos)
@@ -168,9 +167,29 @@ section {
     z-index: 999;
     transition: all 0.3s ease;
 }
+#navbar.navbar-compact {
+    padding: 8px 5%;
+    background: rgba(6, 15, 30, 0.95);
+}
+#navbar.navbar-compact .logo-site {
+    height: 40px;
+}
 .logo-site {
     height: 50px;
     width: auto;
+}
+.marca-header {
+    display: flex;
+    gap: 12px;
+    text-decoration: none;
+    align-items: center;
+}
+.logo-header {
+    font-family: var(--fonte-titulos);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--cor-texto);
+    letter-spacing: -0.5px;
 }
 .menu-navegacao {
     display: flex;
@@ -184,6 +203,9 @@ section {
     transition: color 0.3s ease;
 }
 .menu-navegacao a:hover {
+    color: var(--cor-primaria);
+}
+.menu-navegacao a.ativo {
     color: var(--cor-primaria);
 }
 .acoes-navbar {
@@ -245,25 +267,6 @@ section {
     align-items: center;
     justify-content: center;
 }
-.placeholder-imagem {
-    width: 100%;
-    height: 350px;
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(29, 53, 87, 0.1));
-    border: 1px solid var(--cor-borda);
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    color: var(--cor-secundaria);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    animation: flutuar 4s ease-in-out infinite;
-}
-@keyframes flutuar {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
-}
 /* --- Muito além do código (Sobre) --- */
 .grid-sobre {
     display: grid;
@@ -300,19 +303,60 @@ section {
 /* --- Serviços --- */
 .grade-servicos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 .card-servico {
     background-color: var(--cor-fundo-card);
-    padding: 40px;
-    border-radius: 16px;
+    padding: 50px 40px;
+    border-radius: 20px;
     border: 1px solid var(--cor-borda);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-servico.card-destaque {
+    grid-column: span 2; /* Faz o 1º card ocupar 2 colunas */
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.12), var(--cor-fundo-card));
+    border-color: rgba(0, 123, 255, 0.25);
+}
+.badge-card {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 123, 255, 0.2);
+    color: var(--cor-primaria);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 123, 255, 0.3);
+    text-transform: uppercase;
+}
+.tags-servico {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+.tags-servico span {
+    font-size: 0.85rem;
+    color: var(--cor-texto);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--cor-borda);
+}
+.tags-servico span i {
+    color: var(--cor-primaria);
 }
 .card-servico::before {
     content: '';
@@ -334,16 +378,19 @@ section {
     transform: scaleX(1);
 }
 .icone-servico {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--cor-primaria);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    display: block;
 }
 .titulo-servico {
     font-size: 1.3rem;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 .descricao-servico {
     color: var(--cor-secundaria);
+    line-height: 1.6;
 }
 /* --- Tecnologias --- */
 .grade-tech {
@@ -405,6 +452,59 @@ section {
     margin-left: auto;
     margin-right: auto;
 }
+/* --- FAQ (Accordion) --- */
+.sessao-faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+.item-faq {
+    margin-bottom: 15px;
+    border-radius: 16px;
+    border: 1px solid var(--cor-borda);
+    overflow: hidden;
+    background: var(--cor-fundo-card);
+    backdrop-filter: blur(10px);
+}
+.pergunta-faq {
+    width: 100%;
+    padding: 20px 25px;
+    background: none;
+    border: none;
+    color: var(--cor-texto);
+    font-size: 1.05rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--fonte-textos);
+    transition: color 0.3s;
+    text-align: left;
+}
+.pergunta-faq:hover {
+    color: var(--cor-primaria);
+}
+.pergunta-faq i {
+    transition: transform 0.3s;
+    font-size: 0.9rem;
+    color: var(--cor-primaria);
+}
+.item-faq.aberto .pergunta-faq i {
+    transform: rotate(180deg);
+}
+.resposta-faq {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 25px;
+    color: var(--cor-secundaria);
+    line-height: 1.7;
+}
+.item-faq.aberto .resposta-faq {
+    max-height: 300px;
+    padding: 0 25px 20px;
+}
 /* =========================================
    7. RODAPÉ
    ========================================= */
@@ -415,13 +515,13 @@ section {
 }
 .conteudo-rodape {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
-.logo-rodape {
+.logo-rodape, .direitos{
     font-size: 1.5rem;
     font-weight: 800;
 }
@@ -431,7 +531,7 @@ section {
 }
 .links-rodape a {
     color: var(--cor-secundaria);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     transition: color 0.3s;
 }
 .links-rodape a:hover {
@@ -440,6 +540,7 @@ section {
 .direitos {
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.9rem;
+    white-space: nowrap;
 }
 /* =========================================
    8. ESTILOS GUARDADOS (Portfólio / Projetos)
@@ -491,12 +592,21 @@ body.tema-claro {
     --cor-borda: rgba(0, 0, 0, 0.08);
 }
 body.tema-claro .overlay-video {
-    background: rgba(244, 247, 250, 0.92);
+    background: rgba(244, 247, 250, 0.60);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+body.tema-claro .glow-bg {
+    opacity: 0.35;
 }
 body.tema-claro #navbar .menu-navegacao a {
     color: #8892B0;
 }
 body.tema-claro #navbar .menu-navegacao a:hover {
+    color: #FFF;
+}
+body.tema-claro .menu-navegacao a.ativo {
     color: #FFF;
 }
 body.tema-claro #btn-tema {
@@ -528,8 +638,49 @@ body.tema-claro .img-projeto-placeholder {
     background: #D1D5DB;
     color: var(--cor-secundaria);
 }
+body.tema-claro .direitos{
+    color:#101828;
+}
+body.tema-claro .logo-header {
+    font-family: var(--fonte-titulos);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color:#ffffff;
+    letter-spacing: -0.5px;
+}
 /* =========================================
-   10. RESPONSIVIDADE & MENU MOBILE
+   10. COMPONENTES EXTRAS
+   ========================================= */
+#btn-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--cor-borda);
+    background: var(--cor-fundo-card);
+    backdrop-filter: blur(8px);
+    color: var(--cor-primaria);
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+#btn-topo.visivel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+#btn-topo:hover {
+    background: var(--cor-primaria);
+    color: #FFF;
+}
+/* =========================================
+   11. RESPONSIVIDADE & MENU MOBILE
    ========================================= */
 #btn-menu-mobile {
     display: none;
@@ -551,7 +702,6 @@ body.tema-claro .img-projeto-placeholder {
     .botoes-hero { justify-content: center; }
     .visual-inicial { width: 100%; }
     .grid-sobre { grid-template-columns: 1fr; }
-    .conteudo-rodape { flex-direction: column; gap: 15px; text-align: center; }
     #btn-menu-mobile { display: block; }
     .btn-ocultar-mobile { display: none; }
     .menu-navegacao {
@@ -592,4 +742,13 @@ body.tema-claro .img-projeto-placeholder {
         font-size: 0.8rem;
         margin-top: 5px;
     }
+    .grade-servicos {
+        grid-template-columns: 1fr;
+    }
+    .card-servico.card-destaque {
+        grid-column: span 1;
+    }
+    .sessao-faq { padding: 60px 5% 40px; }
+    .pergunta-faq { font-size: 0.95rem; padding: 15px 20px; }
+    #btn-topo { bottom: 110px; right: 20px; width: 44px; height: 44px; }
 }

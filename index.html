@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="KodaSense | Inovação e Tecnologia">
+    <meta property="og:description" content="...">
+    <meta property="og:image" content="URL_da_logo">
+    <meta property="og:url" content="https://kodasense.com">
+    <meta name="description" content="KodaSense - Transformamos ideias em soluções digitais de alto impacto. Sistemas web, landing pages, e-commerce e muito mais.">
+    <link rel="preload" as="video" href="Fundo.mp4" type="video/mp4">
     <title>KodaSense | Inovação e Tecnologia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="KodaKSsf.png">
 </head>
 <body>
     <video autoplay muted loop playsinline class="video-fundo">
@@ -19,17 +26,20 @@
     <div class="glow-bg"></div>
     <!-- Cabecalho -->
     <header id="navbar">
+        <a href="#inicio" class="marca-header">
         <img src="KodaKSsf.png" alt="KodaSense" class="logo-site">
+        <span class="logo-header">KodaSense</span>
+    </a>
         <nav class="menu-navegacao">
             <a href="#sobre">Quem Somos</a>
             <a href="#servicos">Serviços</a>
             <a href="#tecnologias">Tecnologias</a>
+            <a href="#faq">FAQ</a>
         </nav>
         <div class="acoes-navbar">
     <button id="btn-tema" title="Alternar Tema Claro/Escuro"><i class="fa-solid fa-moon"></i></button>
-    <!-- NOVO: Botão do menu mobile -->
+    <!-- Botão do menu mobile -->
     <button id="btn-menu-mobile" title="Abrir Menu"><i class="fa-solid fa-bars"></i></button>
-    <!-- Ajuste: Escondemos o botão de contato na barra apenas no mobile por falta de espaço -->
     <a href="#contato" class="btn-contato btn-ocultar-mobile">Fale com um Especialista</a>
 </div>
     </header>
@@ -45,7 +55,7 @@
                 </div>
             </div>
             <div class="visual-inicial" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <img src="logoKoda.png" alt="KodaSense">
+                <img src="LogoKoda.png" alt="KodaSense">
             </div>
         </section>
         <!-- Muito alem do codigo -->
@@ -84,10 +94,15 @@
                 <h2 class="titulo-sessao">Soluções 360º para o seu negócio</h2>
             </div>
             <div class="grade-servicos">
-                <div class="card-servico" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card-servico card-destaque" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="badge-card">Mais Solicitado</span>
                     <div class="icone-servico"><i class="fa-solid fa-window-maximize"></i></div>
                     <h3 class="titulo-servico">Sistemas Web (SaaS)</h3>
                     <p class="descricao-servico">Painéis administrativos, CRMs e ERPs sob medida com back-end robusto e arquitetura escalável.</p>
+                    <div class="tags-servico">
+                        <span><i class="fa-solid fa-check"></i> Painéis Customizados</span>
+                        <span><i class="fa-solid fa-check"></i> Arquitetura Escalável</span>
+                    </div>
                 </div>
                 <div class="card-servico" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icone-servico"><i class="fa-solid fa-rocket"></i></div>
@@ -130,14 +145,60 @@
                 <div class="item-tech" data-aos="flip-up" data-aos-delay="400"><i class="fa-brands fa-figma"></i> Figma</div>
             </div>
         </section>
-
-        <!-- A seção de PROJETOS está oculta aqui em comentários para você usar no futuro -->
-        <!--
-        <section id="projetos" class="sessao-projetos">
-            ... seu portfolio entrará aqui ...
+        <!-- FAQ -->
+        <section id="faq" class="sessao-faq">
+            <div class="cabecalho-sessao" data-aos="fade-up">
+                <span class="badge-sessao">FAQ</span>
+                <h2 class="titulo-sessao">Perguntas Frequentes</h2>
+            </div>
+            <div class="lista-faq">
+                <div class="item-faq" data-aos="fade-up">
+                    <button class="pergunta-faq">
+                        Quanto tempo leva para desenvolver um sistema web?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="resposta-faq">
+                        <p>Depende da complexidade, mas geralmente entregamos projetos entre 4 a 12 semanas. Landing pages e sites institucionais saem em 1 a 2 semanas. Agende uma reunião gratuita para uma estimativa personalizada.</p>
+                    </div>
+                </div>
+                <div class="item-faq" data-aos="fade-up" data-aos-delay="100">
+                    <button class="pergunta-faq">
+                        Como funciona o processo de desenvolvimento?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="resposta-faq">
+                        <p>Briefing inicial, prototipação no Figma, desenvolvimento iterativo com feedback constante, testes e deploy. Você acompanha cada etapa em tempo real.</p>
+                    </div>
+                </div>
+                <div class="item-faq" data-aos="fade-up" data-aos-delay="200">
+                    <button class="pergunta-faq">
+                        Vocês oferecem suporte após a entrega?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="resposta-faq">
+                        <p>Sim. Incluímos 30 dias de suporte e correções pós-lançamento. Também oferecemos planos mensais de manutenção contínua.</p>
+                    </div>
+                </div>
+                <div class="item-faq" data-aos="fade-up" data-aos-delay="300">
+                    <button class="pergunta-faq">
+                        Trabalham com contratos mensais de manutenção?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="resposta-faq">
+                        <p>Sim. Temos planos flexíveis que incluem atualizações, monitoramento, suporte prioritário e pequenas melhorias contínuas.</p>
+                    </div>
+                </div>
+                <div class="item-faq" data-aos="fade-up" data-aos-delay="400">
+                    <button class="pergunta-faq">
+                        Atendem clientes fora do Brasil?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="resposta-faq">
+                        <p>Com certeza. Trabalhamos 100% remoto e atendemos clientes em qualquer lugar do mundo. Toda comunicação é feita por canais digitais.</p>
+                    </div>
+                </div>
+            </div>
         </section>
-        -->
-
         <!-- Contato (WhatsApp) -->
         <section id="contato" class="sessao-contato" data-aos="zoom-in">
             <div class="caixa-contato">
@@ -155,10 +216,12 @@
             <div class="logo-rodape">KodaSense</div>
             <div class="links-rodape">
                 <a href="https://instagram.com/kodasense" target="_blank" rel="noopener noreferrer" title="Siga nosso Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ckodasense@gmail.com" target="_blank" rel="noopener noreferrer" title="Envie um e-mail"><i class="fa-regular fa-envelope"></i></a>
             </div>
             <p class="direitos">&copy; 2026 KodaSense. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <button id="btn-topo" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
